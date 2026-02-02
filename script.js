@@ -44,9 +44,9 @@ function startMic() {
         let sum = dataArray.reduce((a, b) => a + b, 0);
         let average = sum / dataArray.length;
 
-        if (average > 50) { // Adjust threshold as needed
+        if (average > 5) { // Adjust threshold as needed
           document.getElementById("candels").style.display = "none";
-          document.getElementById("blow").style.display = "flex";
+          document.getElementById("blow").style.display = "block";
         }
       }
 
