@@ -1,5 +1,3 @@
-document.getElementById("candels").classList.add("show");
-document.getElementById("candels").classList.remove("show");
 let currentScreen = 0; // 0 = title, 1 = intro, 2 = more text, 3 = candels
 let micStarted = false;
 
@@ -31,28 +29,39 @@ function startMic() {
   micStarted = true;
 
   navigator.mediaDevices.getUserMedia({ audio: true })
-    .then(stream => {
+    .then((stream) => {
       const audioContext = new (window.AudioContext || window.webkitAudioContext)();
       const source = audioContext.createMediaStreamSource(stream);
       const analyser = audioContext.createAnalyser();
+
       source.connect(analyser);
-      analyser.fftSize = 512;
+
+      analyser.fftSize = 64; // power of 2 (idk why)
       const dataArray = new Uint8Array(analyser.frequencyBinCount);
 
       function analyze() {
         analyser.getByteFrequencyData(dataArray);
-        let sum = dataArray.reduce((a, b) => a + b, 0);
-        let average = sum / dataArray.length;
 
-        if (average > 5) { // Adjust threshold as needed
+        let sum = 0;
+        for (let i = 0; i < dataArray.length; i++) {
+          sum += dataArray[i];
+        }
+
+        const average = sum / dataArray.length;
+        console.log("Mic level:", average);
+
+        if (average > 5) { //10-30
           document.getElementById("candels").style.display = "none";
           document.getElementById("blow").style.display = "block";
+          return; // stop checking once triggered
         }
+
+        requestAnimationFrame(analyze);
       }
 
-      analyze();
+      analyze(); //start loop
     })
-    .catch(err => {
-      console.error('Error accessing microphone:', err);
+    .catch((err) => {
+      console.error("Error accessing microphone:", err);
     });
 }

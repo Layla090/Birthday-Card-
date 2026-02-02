@@ -171,12 +171,6 @@
   display: flex;
 }
 
-/* stop children from inheriting the * background + margin-top */
-#candels *, #blow * {
-  margin-top: 0 !important;
-  background-color: transparent !important;
-}
-
 /* center + size your text */
 #candles-text, #ra, #final-text {
   color: #f1f1e7 !important;
@@ -186,14 +180,7 @@
   max-width: 90vw;
 }
 
-/* GIVE THE PIXEL-ART A REAL FOOTPRINT so flex spacing works */
-#candle, #blow-candle, #cake {
-  position: relative !important;
-  margin: 0 auto !important;
-  display: block;
-}
-
-/* candle screen: stack text then candle nicely */
+/* stack text then candle nicely */
 #candles-screen {
   display: flex;
   flex-direction: column;
@@ -205,18 +192,15 @@
 /* blow screen: stack candle, then caption, then cake */
 #blow {
   gap: 26px;
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 }
-
-/* optional: make cake sit a bit lower than candle */
-#cake {
-  margin-top: 14px !important;
-}
-
-/* ===== FIX CENTERING + UN-CLUSTER PIXEL ART (PASTE AT VERY BOTTOM) ===== */
 
 /* STOP the global margin-top from pushing everything down */
 body, #start-screen, #intro-screen, #more-text-screen, #candels, #blow {
-  margin-top: 0 !important;
+  margin-top: 0;
 }
 
 /* make each screen a full-page centered stage */
@@ -251,14 +235,5 @@ body, #start-screen, #intro-screen, #more-text-screen, #candels, #blow {
 #cake {
   width: 260px;
   height: 260px;
-  margin-top: 16px !important;
-}
-
-/* center the container that holds the candle text + candle */
-#candles-screen {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 22px;
+  margin-top:4%;
 }
