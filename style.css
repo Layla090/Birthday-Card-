@@ -7,13 +7,6 @@
     margin-top: 8%;
   }
 
-/* Apply the animation to the element */
-.blinking-caret {
-  /* Animation properties: name, duration, timing function, iteration count */
-  animation: caret-blink 0.8s step-end infinite;
-  caret-color: red; /* Set the desired caret color */
-}
-
 #start-text {
     color: #f1f1e7;
     align-items: center;
@@ -25,25 +18,22 @@
     max-width: 100%;
     /* default: no visible text until animation runs */
 }
-.blinking-caret {
-    border-right: 2px solid red; /* simulate caret */
-    padding-right: 5px;
-}
+
 #start-text.typing {
     animation: typing cubic-bezier(0.215, 0.610, 0.355, 1) steps(40, end) forwards; /* 4s duration, 40 steps */
 }
 
 /* continue fade-in */
 #continue-text {
-    opacity: 0;
     color: #dcdcdc;
     font-family: 'Courier New', monospace;
     font-size: 1.2em;
     margin-top: 20px;
-    /* start invisible */
-    transition: opacity 16.7s ease, transform 0.6s ease;
-    animation: fadeIn 1s forwards;
-    animation-delay: 4s; /* delay to sync with typing */
+    animation: fade 5s forwards;
+}
+@keyframes fade {
+    from { opacity: 0%; }
+    to { opacity: 100%; }
 }
 
 @keyframes typing {
@@ -63,4 +53,22 @@
   50% {
     caret-color: initial; /* Reverts to the default/specified caret color at the midpoint */
   }
+}
+
+.blinking-caret {
+    border-right: 2px solid red; /* simulate caret */
+    padding-right: 5px;
+    /* Apply the animation to the element */
+    animation: caret-blink 0.8s step-end infinite;
+    caret-color: red; /* Set the desired caret color */
+}
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px); /* start slightly lower */
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0); /* end at original position */
+    }
 }

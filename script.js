@@ -12,7 +12,7 @@ document.addEventListener("keydown", function(event) {
 function nextTutorialStep() {
     if (currentScreen === 0) {
         // Move from title to intro
-        document.getElementById("title-screen").style.display = "none";
+        document.getElementById("start-screen").style.display = "none";
         document.getElementById("intro-screen").style.display = "block";
         currentScreen = 1;
     } else if (currentScreen === 1) {
