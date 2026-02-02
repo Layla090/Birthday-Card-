@@ -1,4 +1,4 @@
-let currentScreen = 0; // 0 = title, 1 = intro, 2 = more text, 3 = candles
+let currentScreen = 0; // 0 = title, 1 = intro, 2 = more text, 3 = candels
 
 let i = 0;
 let currentstring = 0;
@@ -21,9 +21,9 @@ function nextTutorialStep() {
         document.getElementById("more-text-screen").style.display = "block";
         currentScreen = 2;
     } else if (currentScreen === 2) {
-        // Move from more text to candles
+        // Move from more text to more text screen 2
         document.getElementById("more-text-screen").style.display = "none";
-        document.getElementById("candles-screen").style.display = "block";
+        document.getElementById("candels").style.display = "block";
         currentScreen = 3;
     }
 };
