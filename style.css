@@ -7,6 +7,24 @@
     margin-top: 8%;
 }
 
+
+/* Define the blinking animation */
+@keyframes caret-blink {
+  from, to {
+    caret-color: transparent; /* Makes the caret invisible at the start/end */
+  }
+  50% {
+    caret-color: initial; /* Reverts to the default/specified caret color at the midpoint */
+  }
+}
+
+/* Apply the animation to the element */
+.blinking-caret {
+  /* Animation properties: name, duration, timing function, iteration count */
+  animation: caret-blink 0.8s step-end infinite;
+  caret-color: red; /* Set the desired caret color */
+}
+
 @keyframes typing {
   from {
     width: 0;
@@ -30,11 +48,6 @@
     font-size: 1.4em;
     max-width: 100%;
     /* default: no visible text until animation runs */
-}
-
-@keyframes blink-caret {
-    from, to { border-color: transparent; }
-    50% { border-color: rgba(253, 252, 255, 0.9); }
 }
 
 /* continue fade-in */
