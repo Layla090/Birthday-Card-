@@ -5,18 +5,7 @@
     background-color: black;
     text-align: center;
     margin-top: 8%;
-}
-
-
-/* Define the blinking animation */
-@keyframes caret-blink {
-  from, to {
-    caret-color: transparent; /* Makes the caret invisible at the start/end */
   }
-  50% {
-    caret-color: initial; /* Reverts to the default/specified caret color at the midpoint */
-  }
-}
 
 /* Apply the animation to the element */
 .blinking-caret {
@@ -25,29 +14,23 @@
   caret-color: red; /* Set the desired caret color */
 }
 
-@keyframes typing {
-  from {
-    width: 0;
-  }
-  to {
-    width: 67%;
-  }
-  to {
-    width: 100%;
-  }
-}
-
 #start-text {
     color: #f1f1e7;
     align-items: center;
     display: inline-block;
     overflow: hidden; /* ensure the text is clipped */
     white-space: nowrap;
-    border-right: 0.12em solid rgba(241, 241, 231, 0.9); /* caret */
     font-family: 'Courier New', monospace;
     font-size: 1.4em;
     max-width: 100%;
     /* default: no visible text until animation runs */
+}
+.blinking-caret {
+    border-right: 2px solid red; /* simulate caret */
+    padding-right: 5px;
+}
+#start-text.typing {
+    animation: typing cubic-bezier(0.215, 0.610, 0.355, 1) steps(40, end) forwards; /* 4s duration, 40 steps */
 }
 
 /* continue fade-in */
@@ -61,4 +44,23 @@
     transition: opacity 16.7s ease, transform 0.6s ease;
     animation: fadeIn 1s forwards;
     animation-delay: 4s; /* delay to sync with typing */
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+/* Define the blinking animation */
+@keyframes caret-blink {
+  from, to {
+    caret-color: transparent; /* Makes the caret invisible at the start/end */
+  }
+  50% {
+    caret-color: initial; /* Reverts to the default/specified caret color at the midpoint */
+  }
 }
