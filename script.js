@@ -21,6 +21,10 @@ function nextTutorialStep() {
     document.getElementById("candels").style.display = "block";
     currentScreen = 3;
     startMic();
+  } else if (currentScreen = 4) {
+    document.getElementById("blow").style.display = "none";
+    document.getElementById("ball").style.display = "flex";
+    currentScreen = 5;
   }
 }
 
@@ -52,8 +56,8 @@ function startMic() {
 
         if (average > 5) { //10-30
           document.getElementById("candels").style.display = "none";
-          document.getElementById("blow").style.display = "block";
-          return; // stop checking once triggered
+          document.getElementById("blow").style.display = "flex";
+          currentScreen = 4;
         }
 
         requestAnimationFrame(analyze);
