@@ -16,11 +16,7 @@
     font-family: 'Courier New', monospace;
     font-size: 1.4em;
     max-width: 100%;
-    /* default: no visible text until animation runs */
-}
-
-#start-text.typing {
-    animation: typing cubic-bezier(0.215, 0.610, 0.355, 1) steps(40, end) forwards; /* 4s duration, 40 steps */
+    animation: typing 9s steps(90, end);
 }
 
 /* continue fade-in */
@@ -43,32 +39,4 @@
   to {
     width: 100%;
   }
-}
-
-/* Define the blinking animation */
-@keyframes caret-blink {
-  from, to {
-    caret-color: transparent; /* Makes the caret invisible at the start/end */
-  }
-  50% {
-    caret-color: initial; /* Reverts to the default/specified caret color at the midpoint */
-  }
-}
-
-.blinking-caret {
-    border-right: 2px solid red; /* simulate caret */
-    padding-right: 5px;
-    /* Apply the animation to the element */
-    animation: caret-blink 0.8s step-end infinite;
-    caret-color: red; /* Set the desired caret color */
-}
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(20px); /* start slightly lower */
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0); /* end at original position */
-    }
 }
