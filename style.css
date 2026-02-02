@@ -9,15 +9,15 @@
 
 #start-text {
     color: #f1f1e7;
+    margin-top: 5%;
     align-items: center;
     display: inline-block;
+    overflow: hidden;
     white-space: nowrap;
     font-family: 'Courier New', monospace;
     font-size: 1.2em;
     max-width: 100%;
     animation: typing 9s steps(100, end);
-    word-wrap: break-word;      /* Legacy */
-    overflow-wrap: break-word;  /* Modern standard */
 }
 #intro-text {
     color: #f1f1e7;
@@ -67,15 +67,7 @@
     font-family: 'Courier New', monospace;
     font-size: 1.2em;
     margin-top: 20px;
-    animation: fade 6s forwards;
-}
-
-#final-text {
-    color: #dcdcdc;
-    font-family: 'Courier New', monospace;
-    font-size: 1.2em;
-    margin-top: 20px;
-    animation: fade 6s forwards;
+    animation: fade 17s forwards;
 }
 
 @keyframes fade {
