@@ -11,14 +11,14 @@
     color: #f1f1e7;
     align-items: center;
     display: inline-block;
-    overflow: hidden; /* ensure the text is clipped */
     white-space: nowrap;
     font-family: 'Courier New', monospace;
-    font-size: 1.4em;
+    font-size: 1.2em;
     max-width: 100%;
     animation: typing 9s steps(100, end);
+    word-wrap: break-word;      /* Legacy */
+    overflow-wrap: break-word;  /* Modern standard */
 }
-
 #intro-text {
     color: #f1f1e7;
     align-items: center;
@@ -26,10 +26,11 @@
     overflow: hidden; /* ensure the text is clipped */
     white-space: nowrap;
     font-family: 'Courier New', monospace;
-    font-size: 1.4em;
+    font-size: 1em;
     max-width: 100%;
-    animation: typing 9s steps(100, end);
+    animation: typing 7s steps(100, end);
 }
+
 
 #more-text {
     color: #f1f1e7;
@@ -38,7 +39,7 @@
     overflow: hidden; /* ensure the text is clipped */
     white-space: nowrap;
     font-family: 'Courier New', monospace;
-    font-size: 1.4em;
+    font-size: 1.3em;
     max-width: 100%;
     animation: typing 7s steps(100, end);
 }
@@ -160,7 +161,7 @@
   }
 }
 
-/* ---------- FIX ENDING SCREENS LAYOUT (paste at very bottom) ---------- */
+/* ---------- FIX ENDING SCREENS LAYOUT ---------- */
 
 /* make both ending screens full-page centered stages */
 #candels, #blow {
